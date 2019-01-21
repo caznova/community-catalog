@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: "WordPress"
-  version: "v0.2-bitnami"
+  version: "v0.3-bitnami"
   description: "Blog tool, publishing platform and CMS based on bitnami images"
   uuid: WordPress-1
   minimum_rancher_version: v0.51.0
@@ -60,27 +60,12 @@ catalog:
         - rancher-efs
         - rancher-ebs
 services:
-  wordpress-lb:
-    scale: 1
-    lb_config:
-      certs: []
-      port_rules:
-      - protocol: http
-        service: wordpress
-        source_port: ${public_port}
-        target_port: 80
-    health_check:
-      response_timeout: 2000
-      healthy_threshold: 2
-      interval: 2000
-      port: 42
-      unhealthy_threshold: 3
   wordpress:
     scale: 1
     retain_ip: true
     health_check:
       port: 80
-      interval: 5000
+      interval: 30000
       unhealthy_threshold: 3
       request_line: 'GET / HTTP/1.0'
       healthy_threshold: 2
