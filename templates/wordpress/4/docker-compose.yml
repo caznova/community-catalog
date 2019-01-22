@@ -1,0 +1,16 @@
+version: '2'
+services:
+  wordpress:
+      image: 'caznova/wordpress:latest'
+      volumes:
+        - 'wordpress_data:/opt/bitnami'
+      environment:
+        - MARIADB_HOST=${mariadb_host}
+        - WORDPRESS_DATABASE_NAME=${mariadb_database_name}
+        - WORDPRESS_DATABASE_USER=${mariadb_user} 
+        - WORDPRESS_DATABASE_PASSWORD=${mariadb_user_password}       
+        - WORDPRESS_USERNAME=${wordpress_username}
+        - WORDPRESS_PASSWORD=${wordpress_password}
+volumes:
+  wordpress_data:
+    driver: ${volume_driver}
