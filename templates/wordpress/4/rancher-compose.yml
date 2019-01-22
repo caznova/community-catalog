@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: "WordPress FIFA55"
-  version: "v0.1 Acaz"
+  version: "v0.4 Acaz"
   description: "Blog tool, publishing platform and CMS based on bitnami images"
   uuid: WordPress-1
   minimum_rancher_version: v0.51.0
